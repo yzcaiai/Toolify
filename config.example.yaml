@@ -1,0 +1,67 @@
+# OpenAI Function Call Middleware Configuration Example File
+# Please copy this file as config.yaml and modify the configuration according to your actual needs
+
+# Server configuration
+server:
+  port: 8000                    # Server listening port
+  host: "0.0.0.0"              # Server listening address
+  timeout: 180                  # Request timeout (seconds)
+
+# Upstream OpenAI compatible service configuration
+upstream_services:
+  - name: "openai"
+    base_url: "https://api.openai.com/v1"
+    api_key: "your-openai-api-key-here"
+    description: "OpenAI Official Service"
+    is_default: true
+    models:
+      - "gpt-3.5-turbo"
+      - "gpt-3.5-turbo-16k"
+      - "gpt-4"
+      - "gpt-4-turbo"
+      - "gpt-4o"
+      - "gpt-4o-mini"
+
+  - name: "google"
+    base_url: "https://generativelanguage.googleapis.com/v1beta/openai/"
+    api_key: "your-google-api-key-here"
+    description: "Google Gemini Service"
+    is_default: false
+    models:
+      - "gemini-2.5-pro"
+      - "gemini-2.5-flash"
+
+# Client authentication configuration
+client_authentication:
+  allowed_keys:
+    - "sk-my-secret-key-1"
+    - "sk-my-secret-key-2"
+
+# Feature configuration
+features:
+  enable_function_calling: true  # Enable function calling feature
+  enable_streaming: true         # Enable streaming responses
+  enable_logging: true           # Enable logging
+  convert_developer_to_system: true  # Whether to convert the developer role to the system role
+
+# Configuration explanation:
+# 1. upstream_services: Configure multiple OpenAI compatible API services
+#    - name: Service name (for identification)
+#    - base_url: Base URL of the service
+#    - api_key: API key for the corresponding service
+#    - models: Complete list of models supported by the service
+#    - is_default: Whether it is the default service (used when the requested model is not in any service's model list)
+#    - description: Service description (optional)
+#
+# 2. Routing matching rules:
+#    - The system will exactly match the corresponding service based on the model name in the request
+#    - If the model name is not in the models list of any service, the service with is_default set to true will be used
+#    - There must be one and only one service marked as is_default: true
+#
+# 3. Client authentication:
+#    - allowed_keys: List of client API keys allowed to access this middleware
+#
+# 4. Security reminders:
+#    - Please keep API keys safe and do not commit configuration files containing real keys to version control systems
+#    - It is recommended to use different configuration files for different environments
+#    - Environment variables can be used to manage sensitive information
