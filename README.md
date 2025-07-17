@@ -57,7 +57,7 @@ You can run Toolify using Python directly or via Docker Compose.
    cp config.example.yaml config.yaml
    ```
 
-   Edit [`config.yaml`](config.yaml) to set up your upstream services, API keys, and allowed client keys.
+   Edit `config.yaml` to set up your upstream services, API keys, and allowed client keys.
 
 4. **Run the server:**
 
@@ -90,7 +90,7 @@ This is the recommended way for easy deployment.
    cp config.example.yaml config.yaml
    ```
 
-   Edit [`config.yaml`](config.yaml). The `docker-compose.yml` file is configured to mount this file into the container.
+   Edit `config.yaml`. The `docker-compose.yml` file is configured to mount this file into the container.
 
 3. **Start the service:**
 

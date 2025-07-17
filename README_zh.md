@@ -57,7 +57,7 @@ Toolify 是一个中间件代理，旨在为那些本身不支持函数调用功
    cp config.example.yaml config.yaml
    ```
 
-   编辑 [`config.yaml`](config.yaml) 文件，设置您的上游服务、API 密钥以及允许的客户端密钥。
+   编辑 `config.yaml` 文件，设置您的上游服务、API 密钥以及允许的客户端密钥。
 
 4. **运行服务器：**
 
@@ -90,7 +90,7 @@ Toolify 是一个中间件代理，旨在为那些本身不支持函数调用功
    cp config.example.yaml config.yaml
    ```
 
-   编辑 [`config.yaml`](config.yaml)。`docker-compose.yml` 文件已配置为将此文件挂载到容器中。
+   编辑 `config.yaml`。`docker-compose.yml` 文件已配置为将此文件挂载到容器中。
 
 3. **启动服务：**
 
