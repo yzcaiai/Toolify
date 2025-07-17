@@ -15,6 +15,7 @@ Toolify is a middleware proxy designed to inject OpenAI-compatible function call
 - **Streaming Support**: Fully supports streaming responses, detecting and parsing function calls on the fly.
 - **Multi-Service Routing**: Routes requests to different upstream services based on the requested model name.
 - **Client Authentication**: Secures the middleware with configurable client API keys.
+- **Enhanced Context Awareness**: Provides LLMs with the details (name and parameters) of previous tool calls alongside the execution results, improving contextual understanding.
 
 ## How It Works
 
